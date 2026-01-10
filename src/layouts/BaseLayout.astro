@@ -32,6 +32,11 @@ const siteTitle = `${title} | ${constants.legalName}`;
       ogImage={ogImage}
       ogType={ogType}
     />
+
+    <!-- Prevent indexing when disabled in constants -->
+    { !constants.indexingAllowed && (
+      <meta name="robots" content="noindex, nofollow" />
+    ) }
     
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

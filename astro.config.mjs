@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import sitemap from '@astrojs/sitemap';
 import constants from './src/data/constants.json' assert { type: 'json' };
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +10,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [sitemap()],
+  integrations: [
+    // Only include sitemap integration when indexing is allowed
+    ...(constants.indexingAllowed ? [sitemap()] : [])
+  ],
   build: {
     format: 'directory'
   }
