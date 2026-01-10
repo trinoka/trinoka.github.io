@@ -1,4 +1,6 @@
 ---
+import constants from '../data/constants.json' assert { type: 'json' };
+
 interface Props {
   title: string;
   description: string;
@@ -11,11 +13,9 @@ const {
   title, 
   description, 
   canonical = Astro.url.href,
-  ogImage = '/og-image.png',
+  ogImage = constants.ogImage,
   ogType = 'website'
 } = Astro.props;
-
-import constants from '../data/constants.json' assert { type: 'json' };
 
 const siteName = constants.legalName;
 const siteUrl = constants.siteUrl;

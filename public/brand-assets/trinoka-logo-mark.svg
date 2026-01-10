@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="white"/>
+  
+  <!-- TRINOKA Logo Mark Only - Three Interlocking Ellipses -->
+  <g transform="translate(100, 100)">
+    <!-- Left ellipse -->
+    <ellipse cx="-32" cy="0" rx="28" ry="50" fill="none" stroke="#6366f1" stroke-width="4"/>
+    <!-- Center ellipse -->
+    <ellipse cx="0" cy="0" rx="28" ry="55" fill="none" stroke="#4f46e5" stroke-width="4"/>
+    <!-- Right ellipse -->
+    <ellipse cx="32" cy="0" rx="28" ry="50" fill="none" stroke="#818cf8" stroke-width="4"/>
+  </g>
+</svg>

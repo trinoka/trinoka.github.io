@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- TRINOKA Favicon - Three Interlocking Ellipses -->
+  <rect width="64" height="64" fill="white"/>
+  <g transform="translate(32, 32)">
+    <!-- Left ellipse -->
+    <ellipse cx="-10" cy="0" rx="9" ry="18" fill="none" stroke="#6366f1" stroke-width="2"/>
+    <!-- Center ellipse -->
+    <ellipse cx="0" cy="0" rx="9" ry="20" fill="none" stroke="#4f46e5" stroke-width="2"/>
+    <!-- Right ellipse -->
+    <ellipse cx="10" cy="0" rx="9" ry="18" fill="none" stroke="#818cf8" stroke-width="2"/>
+  </g>
+</svg>

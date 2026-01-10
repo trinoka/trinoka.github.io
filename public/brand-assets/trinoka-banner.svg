@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- TRINOKA LLP - Social Media / Email Banner -->
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  
+  <!-- Accent Bar -->
+  <rect x="0" y="0" width="1200" height="8" fill="#4f46e5"/>
+  
+  <!-- Logo Mark - Three Interlocking Ellipses (Large) -->
+  <g transform="translate(600, 260)">
+    <ellipse cx="-55" cy="0" rx="48" ry="95" fill="none" stroke="#6366f1" stroke-width="6"/>
+    <ellipse cx="0" cy="0" rx="48" ry="105" fill="none" stroke="#4f46e5" stroke-width="6"/>
+    <ellipse cx="55" cy="0" rx="48" ry="95" fill="none" stroke="#818cf8" stroke-width="6"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="600" y="470" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#4f46e5" text-anchor="middle" letter-spacing="12">TRINOKA</text>
+  <text x="600" y="520" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="500" fill="#6b7280" text-anchor="middle" letter-spacing="8">LLP</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="580" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#9ca3af" text-anchor="middle" letter-spacing="2">Trust • Growth • Stability</text>
+  
+  <!-- Bottom accent -->
+  <rect x="0" y="622" width="1200" height="8" fill="#4f46e5"/>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#1f2937"/>
+  
+  <!-- TRINOKA Logo Mark - White on Dark -->
+  <g transform="translate(200, 140)">
+    <!-- Left ellipse -->
+    <ellipse cx="-32" cy="0" rx="28" ry="50" fill="none" stroke="#a5b4fc" stroke-width="4"/>
+    <!-- Center ellipse -->
+    <ellipse cx="0" cy="0" rx="28" ry="55" fill="none" stroke="#c7d2fe" stroke-width="4"/>
+    <!-- Right ellipse -->
+    <ellipse cx="32" cy="0" rx="28" ry="50" fill="none" stroke="#e0e7ff" stroke-width="4"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="200" y="330" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="8">TRINOKA</text>
+  
+  <!-- Legal Entity Type -->
+  <text x="200" y="365" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" fill="#9ca3af" text-anchor="middle" letter-spacing="4">LLP</text>
+</svg>

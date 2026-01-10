@@ -6,7 +6,12 @@
   "legalName": "Trinoka LLP",
   "llpin": "ACT-9590",
   "indexingAllowed": false,
-  "favicon": "/favicon.svg",
+  "favicon": "/brand-assets/trinoka-favicon.svg",
+  "logo": "/brand-assets/trinoka-logo-primary.svg",
+  "logoHorizontal": "/brand-assets/trinoka-logo-horizontal.svg",
+  "logoMark": "/brand-assets/trinoka-logo-mark.svg",
+  "socialIcon": "/brand-assets/trinoka-social-icon.svg",
+  "ogImage": "/brand-assets/trinoka-banner.svg",
   "registeredOffice": {
     "streetAddress": "6/186, Vikas Nagar",
     "locality": "Lucknow",
