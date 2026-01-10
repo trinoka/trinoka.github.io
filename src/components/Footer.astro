@@ -1,0 +1,88 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  company: [
+    { href: '/about/', label: 'About Us' },
+    { href: '/business/', label: 'Business Domains' },
+    { href: '/contact/', label: 'Contact' },
+  ],
+  legal: [
+    { href: '/legal/', label: 'Legal & Compliance' },
+  ],
+};
+---
+
+<footer class="bg-gray-50 border-t border-gray-200">
+  <div class="container-main py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Company Info -->
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center gap-2 text-xl font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary)] mb-4">
+          <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="8" fill="currentColor"/>
+            <path d="M12 14h16v3H22v12h-4V17h-6v-3z" fill="white"/>
+          </svg>
+          <span>Trinoka LLP</span>
+        </a>
+        <p class="text-gray-600 text-sm mb-4 max-w-sm">
+          A Limited Liability Partnership incorporated under the LLP Act, 2008, operating across diverse business domains.
+        </p>
+        <address class="text-gray-600 text-sm not-italic">
+          <p>6/186, Vikas Nagar</p>
+          <p>Lucknow – 226022</p>
+          <p>Uttar Pradesh, India</p>
+        </address>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h3 class="font-semibold text-[var(--color-primary)] mb-4">Company</h3>
+        <ul class="space-y-2" role="list">
+          {footerLinks.company.map((link) => (
+            <li>
+              <a 
+                href={link.href}
+                class="text-gray-600 text-sm hover:text-[var(--color-primary)] transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal Links -->
+      <div>
+        <h3 class="font-semibold text-[var(--color-primary)] mb-4">Legal</h3>
+        <ul class="space-y-2" role="list">
+          {footerLinks.legal.map((link) => (
+            <li>
+              <a 
+                href={link.href}
+                class="text-gray-600 text-sm hover:text-[var(--color-primary)] transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-4">
+          <p class="text-gray-500 text-xs">LLPIN: ACT-9590</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">
+          © {currentYear} Trinoka LLP. All rights reserved.
+        </p>
+        <p class="text-gray-400 text-xs">
+          Incorporated under the Limited Liability Partnership Act, 2008
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

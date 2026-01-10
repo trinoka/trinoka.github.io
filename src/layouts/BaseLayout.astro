@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import constants from '../data/constants.json' assert { type: 'json' };
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const { title, description, canonical, ogImage, ogType = 'website' } = Astro.props;
+const siteTitle = `${title} | ${constants.legalName}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <SEO 
+      title={siteTitle}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      ogType={ogType}
+    />
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <Header />
+    
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+    
+    <Footer />
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": constants.legalName,
+      "legalName": constants.legalName,
+      "url": constants.siteUrl,
+      "logo": `${constants.siteUrl}/logo.svg`,
+      "description": "Trinoka LLP is a Limited Liability Partnership incorporated under the LLP Act, 2008, operating across mobility, hospitality, technology, and consulting domains.",
+      "foundingDate": constants.foundingDate,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": constants.registeredOffice.streetAddress,
+        "addressLocality": constants.registeredOffice.locality,
+        "postalCode": constants.registeredOffice.postalCode,
+        "addressRegion": constants.registeredOffice.region,
+        "addressCountry": constants.registeredOffice.country
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": constants.email,
+        "contactType": "General Inquiry"
+      },
+      "sameAs": []
+    })} />
+  </body>
+</html>

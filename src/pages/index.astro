@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BusinessSection from '../components/BusinessSection.astro';
+
+const businessDomains = [
+  {
+    title: 'Mobility & Transportation',
+    description: 'Supporting modern mobility solutions and transportation services.',
+    icon: '🚗'
+  },
+  {
+    title: 'Hospitality & Accommodation',
+    description: 'Enabling hospitality ventures and accommodation services.',
+    icon: '🏨'
+  },
+  {
+    title: 'Technology & Digital Services',
+    description: 'Building technology solutions and digital transformation services.',
+    icon: '💻'
+  },
+  {
+    title: 'Consulting & Training',
+    description: 'Providing professional consulting and training services.',
+    icon: '📊'
+  }
+];
+---
+
+<BaseLayout 
+  title="Home"
+  description="Trinoka LLP is a Limited Liability Partnership incorporated under the LLP Act, 2008, operating across mobility, hospitality, technology, and consulting domains."
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-gray-50 to-white section-padding">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="heading-primary mb-6">
+          Building Foundations for Sustainable Ventures
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Trinoka LLP is a Limited Liability Partnership incorporated under the 
+          Limited Liability Partnership Act, 2008. We operate across diverse business 
+          domains, providing a foundation for sustainable and ethical enterprise.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/about/" class="btn btn-primary">
+            Learn About Us
+          </a>
+          <a href="/business/" class="btn btn-outline">
+            Our Business Domains
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Facts -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <h2 class="heading-secondary mb-4">Company at a Glance</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Key facts about Trinoka LLP as per official registration documents.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="text-center p-6 bg-gray-50 rounded-lg">
+          <p class="text-sm text-gray-500 mb-1">Legal Name</p>
+          <p class="font-semibold text-[var(--color-primary)]">Trinoka LLP</p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-lg">
+          <p class="text-sm text-gray-500 mb-1">LLPIN</p>
+          <p class="font-semibold text-[var(--color-primary)]">ACT-9590</p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-lg">
+          <p class="text-sm text-gray-500 mb-1">Date of Commencement</p>
+          <p class="font-semibold text-[var(--color-primary)]">05 January 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Domains Preview -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <h2 class="heading-secondary mb-4">Business Domains</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          We operate across multiple sectors, providing a versatile foundation 
+          for diverse business activities.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {businessDomains.map((domain) => (
+          <BusinessSection 
+            title={domain.title}
+            description={domain.description}
+            icon={domain.icon}
+          />
+        ))}
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="/business/" class="btn btn-outline">
+          View All Business Domains
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="heading-secondary mb-4">Official Correspondence</h2>
+        <p class="text-gray-600 mb-6">
+          For business inquiries, vendor verification, or official correspondence, 
+          please contact us through our registered channels.
+        </p>
+        <a href="/contact/" class="btn btn-primary">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

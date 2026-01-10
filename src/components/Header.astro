@@ -1,0 +1,98 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/business/', label: 'Business' },
+  { href: '/contact/', label: 'Contact' },
+  { href: '/legal/', label: 'Legal' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') {
+    return currentPath === '/' || currentPath === '';
+  }
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+  <nav class="container-main" aria-label="Main navigation">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 text-xl font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary)]">
+        <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="40" height="40" rx="8" fill="currentColor"/>
+          <path d="M12 14h16v3H22v12h-4V17h-6v-3z" fill="white"/>
+        </svg>
+        <span>Trinoka LLP</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-8" role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a 
+              href={link.href}
+              class={`text-sm font-medium transition-colors ${
+                isActive(link.href)
+                  ? 'text-[var(--color-accent)]'
+                  : 'text-gray-600 hover:text-[var(--color-primary)]'
+              }`}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        type="button"
+        class="md:hidden p-2 text-gray-600 hover:text-[var(--color-primary)]"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        id="mobile-menu-button"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="hidden md:hidden" id="mobile-menu">
+      <ul class="py-4 space-y-2 border-t border-gray-100" role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a 
+              href={link.href}
+              class={`block py-2 text-sm font-medium ${
+                isActive(link.href)
+                  ? 'text-[var(--color-accent)]'
+                  : 'text-gray-600 hover:text-[var(--color-primary)]'
+              }`}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

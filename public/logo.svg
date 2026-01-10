@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" fill="#1e3a5f"/>
+  <rect x="20" y="20" width="160" height="160" rx="16" fill="white" fill-opacity="0.1"/>
+  <path d="M60 70h80v15H110v60H90V85H60v-15z" fill="white"/>
+  <text x="100" y="170" font-family="Inter, system-ui, sans-serif" font-size="16" fill="white" fill-opacity="0.9" text-anchor="middle">Trinoka LLP</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1e3a5f"/>
+  
+  <!-- Subtle pattern -->
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grid)" fill-opacity="0.05"/>
+  
+  <!-- Logo and Text Container -->
+  <g transform="translate(600, 280)">
+    <!-- Logo Mark -->
+    <rect x="-60" y="-60" width="120" height="120" rx="20" fill="white" fill-opacity="0.1"/>
+    <path d="M-36 -30h72v18H12v54H-12V-12H-36v-18z" fill="white"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="600" y="420" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="white" text-anchor="middle">Trinoka LLP</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="480" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="24" fill="white" fill-opacity="0.7" text-anchor="middle">Building Foundations for Sustainable Ventures</text>
+  
+  <!-- Grid Pattern Definition -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>

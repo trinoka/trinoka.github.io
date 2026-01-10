@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import constants from '../data/constants.json' assert { type: 'json' };
+---
+
+<BaseLayout 
+  title="Contact"
+  description="Contact Trinoka LLP for business inquiries, vendor verification, or official correspondence. Find our registered office address and official contact information."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-gray-50 to-white section-padding">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="heading-primary mb-6">Contact & Verification</h1>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          For business inquiries, vendor verification, or official correspondence, 
+          please use our registered contact information below.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Registered Office -->
+          <div class="bg-white rounded-lg border border-gray-200 p-8">
+            <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-[var(--color-primary)] mb-4">
+              Registered Office
+            </h2>
+            <address class="not-italic text-gray-600 leading-relaxed">
+              <p class="font-medium text-gray-800 mb-2">Trinoka LLP</p>
+              <p>6/186, Vikas Nagar</p>
+              <p>Lucknow – 226022</p>
+              <p>Uttar Pradesh, India</p>
+            </address>
+          </div>
+
+          <!-- Official Email -->
+          <div class="bg-white rounded-lg border border-gray-200 p-8">
+            <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-[var(--color-primary)] mb-4">
+              Official Email
+            </h2>
+            <p class="text-gray-600 mb-4">
+              For all official correspondence and inquiries:
+            </p>
+            <a 
+              href={`mailto:${constants.email}`} 
+              class="text-[var(--color-accent)] font-medium hover:underline"
+            >
+              {constants.email}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verification Information -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="heading-secondary mb-8 text-center">Verification Information</h2>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-sm font-medium text-gray-500 mb-2">Legal Name</h3>
+              <p class="text-lg font-semibold text-[var(--color-primary)]">Trinoka LLP</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-gray-500 mb-2">LLPIN</h3>
+              <p class="text-lg font-semibold text-[var(--color-primary)]">ACT-9590</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-gray-500 mb-2">Governing Act</h3>
+              <p class="text-lg font-semibold text-[var(--color-primary)]">LLP Act, 2008</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium text-gray-500 mb-2">Date of Commencement</h3>
+              <p class="text-lg font-semibold text-[var(--color-primary)]">05 January 2026</p>
+            </div>
+          </div>
+          
+          <hr class="my-6 border-gray-200" />
+          
+          <p class="text-gray-600 text-sm">
+            The above details can be verified through the Ministry of Corporate Affairs (MCA) 
+            portal at <a href="https://www.mca.gov.in" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:underline">www.mca.gov.in</a> 
+            using the LLPIN provided.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statement -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-blue-50 rounded-lg p-8 border border-blue-100">
+          <h2 class="heading-tertiary mb-4 text-center">Statement for Official Correspondence</h2>
+          <p class="text-gray-700 leading-relaxed text-center">
+            For official communications including vendor onboarding, bank references, 
+            government submissions, and business verifications, please use the registered 
+            office address and official email provided above. All correspondence should be 
+            addressed to <strong>Trinoka LLP</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Website -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-main">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="heading-secondary mb-4">Official Website</h2>
+        <p class="text-gray-600 mb-4">
+          This is the official website of Trinoka LLP:
+        </p>
+        <p class="text-xl font-semibold text-[var(--color-primary)]">
+          {constants.siteDomain}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BusinessSection from '../components/BusinessSection.astro';
+
+const businessDomains = [
+  {
+    title: 'Mobility & Transportation',
+    description: 'Providing mobility solutions and transportation services, including vehicle rentals, logistics support, and fleet management. We aim to support the evolving transportation needs of businesses and individuals.',
+    icon: '🚗'
+  },
+  {
+    title: 'Hospitality & Accommodation',
+    description: 'Operating and managing hospitality ventures including accommodations, guest houses, and related services. Our focus is on delivering quality experiences while maintaining operational excellence.',
+    icon: '🏨'
+  },
+  {
+    title: 'Food & Beverage (F&B)',
+    description: 'Engaging in food and beverage operations, including cafes, restaurants, catering, and food service management. We emphasize quality, hygiene, and customer satisfaction.',
+    icon: '🍽️'
+  },
+  {
+    title: 'Travel & Tourism',
+    description: 'Facilitating travel and tourism services, including tour operations, travel planning, and destination management. We support both leisure and business travel requirements.',
+    icon: '✈️'
+  },
+  {
+    title: 'Technology & Digital Services',
+    description: 'Developing and providing technology solutions, software services, and digital transformation support. We help businesses leverage technology for growth and efficiency.',
+    icon: '💻'
+  },
+  {
+    title: 'Retail & Commerce',
+    description: 'Engaging in retail operations and commercial activities, including trading, distribution, and e-commerce. We support both traditional and digital commerce channels.',
+    icon: '🛒'
+  },
+  {
+    title: 'Consulting & Training',
+    description: 'Offering professional consulting services, business advisory, and training programs. We provide expertise across management, operations, and skill development domains.',
+    icon: '📊'
+  },
+  {
+    title: 'Content, Media & Events',
+    description: 'Creating and managing content, media production, and event management services. We support businesses and organizations in their communication and engagement needs.',
+    icon: '🎬'
+  }
+];
+---
+
+<BaseLayout 
+  title="Business Domains"
+  description="Explore the diverse business domains of Trinoka LLP - from mobility and hospitality to technology and consulting services."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-gray-50 to-white section-padding">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="heading-primary mb-6">Business Domains</h1>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Trinoka LLP operates across multiple sectors, providing a versatile 
+          foundation for diverse business activities as defined in our LLP Agreement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Domains Grid -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {businessDomains.map((domain) => (
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+            <div class="w-14 h-14 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+              <span class="text-3xl" aria-hidden="true">{domain.icon}</span>
+            </div>
+            <h2 class="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              {domain.title}
+            </h2>
+            <p class="text-gray-600 leading-relaxed">
+              {domain.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="heading-secondary mb-6">Operational Approach</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          The business domains listed above represent the scope of activities 
+          that Trinoka LLP is authorized to undertake as per its LLP Agreement. 
+          Actual operations may be initiated in phases based on business 
+          validation and market opportunities.
+        </p>
+        <p class="text-gray-500 text-sm">
+          For specific inquiries about our current operations or potential 
+          collaborations, please contact us through our official channels.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="heading-secondary mb-4">Interested in Collaboration?</h2>
+        <p class="text-gray-600 mb-6">
+          For business inquiries or partnership discussions, reach out to us.
+        </p>
+        <a href="/contact/" class="btn btn-primary">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
