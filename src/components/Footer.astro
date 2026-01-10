@@ -1,4 +1,5 @@
 ---
+import constants from '../data/constants.json' assert { type: 'json' };
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
@@ -25,9 +26,9 @@ const footerLinks = {
           A Limited Liability Partnership incorporated under the LLP Act, 2008, operating across diverse business domains.
         </p>
         <address class="text-gray-600 text-sm not-italic">
-          <p>6/186, Vikas Nagar</p>
-          <p>Lucknow – 226022</p>
-          <p>Uttar Pradesh, India</p>
+          <p>{constants.registeredOffice.streetAddress}</p>
+          <p>{constants.registeredOffice.locality} – {constants.registeredOffice.postalCode}</p>
+          <p>{constants.registeredOffice.region}, {constants.registeredOffice.country}</p>
         </address>
       </div>
 
