@@ -5,7 +5,7 @@
   "foundingDate": "2026-01-05",
   "legalName": "Trinoka LLP",
   "llpin": "ACT-9590",
-  "indexingAllowed": false,
+  "indexingAllowed": true,
   "favicon": "/brand-assets/trinoka-favicon.svg",
   "logo": "/brand-assets/trinoka-logo-primary.svg",
   "logoHorizontal": "/brand-assets/trinoka-logo-horizontal.svg",
