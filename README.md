@@ -8,7 +8,7 @@ Official public website of **Trinoka LLP**, a Limited Liability Partnership inco
 - **LLPIN:** ACT-9590
 - **Date of Commencement:** 05 January 2026
 - **Registered Office:** 6/186, Vikas Nagar, Lucknow – 226022, Uttar Pradesh, India
-- **Website:** https://trinoka.github.io
+- **Website:** https://trinoka.in
 
 > Note: Primary site constants (URL, email, LLPIN, dates) are maintained in `src/data/constants.json`. Update that file and rebuild to apply changes across the site.
 
