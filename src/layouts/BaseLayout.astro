@@ -15,6 +15,9 @@ interface Props {
 
 const { title, description, canonical, ogImage, ogType = 'website' } = Astro.props;
 const siteTitle = `${title} | ${constants.legalName}`;
+const googleFontFamily = encodeURIComponent(constants.typography.family).replace(/%20/g, '+');
+const googleFontHref = `https://fonts.googleapis.com/css2?family=${googleFontFamily}:wght@${constants.typography.weights}&display=${constants.typography.display}`;
+const bodyFontStack = `'${constants.typography.family}', ${constants.typography.fallbackStack}`;
 ---
 
 <!doctype html>
@@ -22,8 +25,106 @@ const siteTitle = `${title} | ${constants.legalName}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={constants.favicon} />
+    <link rel="icon" type="image/svg+xml" href={constants.favicon} id="dynamic-favicon" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="application-name" content={constants.legalName} />
+    <meta name="apple-mobile-web-app-title" content={constants.legalName} />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content={constants.theme.iosStatusBarStyle} />
+    <meta name="msapplication-TileColor" content={constants.theme.defaultColor} />
+    <meta name="theme-color" content={constants.theme.defaultColor} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content={constants.theme.lightColor} />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content={constants.theme.darkColor} />
+    <meta name="color-scheme" content="light dark" />
+
+    <script
+      is:inline
+      define:vars={{
+        lightThemeColor: constants.theme.lightColor,
+        darkThemeColor: constants.theme.darkColor,
+        lightFavicon: constants.favicon,
+        darkFavicon: constants.faviconDark
+      }}
+    >
+      const root = document.documentElement;
+      const themeStorageKey = 'trinoka-theme';
+      const dynamicThemeMeta = document.querySelector('meta[name="theme-color"]:not([media])');
+      const dynamicFavicon = document.getElementById('dynamic-favicon');
+      const prefersDarkMode = window.matchMedia?.('(prefers-color-scheme: dark)');
+
+      const resolveMode = (theme) => {
+        if (theme === 'dark') return 'dark';
+        if (theme === 'light') return 'light';
+        return prefersDarkMode?.matches ? 'dark' : 'light';
+      };
+
+      const applyTheme = (theme) => {
+        const normalizedTheme = theme === 'dark' || theme === 'light' ? theme : 'auto';
+        const resolvedMode = resolveMode(normalizedTheme);
+
+        root.dataset.theme = normalizedTheme;
+        root.dataset.mode = resolvedMode;
+
+        if (dynamicThemeMeta) {
+          dynamicThemeMeta.setAttribute('content', resolvedMode === 'dark' ? darkThemeColor : lightThemeColor);
+        }
+
+        if (dynamicFavicon) {
+          dynamicFavicon.setAttribute('href', resolvedMode === 'dark' ? darkFavicon : lightFavicon);
+        }
+
+        window.dispatchEvent(
+          new CustomEvent('themechange', {
+            detail: { theme: normalizedTheme, mode: resolvedMode }
+          })
+        );
+      };
+
+      let storedTheme = 'auto';
+      try {
+        storedTheme = localStorage.getItem(themeStorageKey) || 'auto';
+      } catch {
+        storedTheme = 'auto';
+      }
+
+      applyTheme(storedTheme);
+
+      const handleSystemThemeChange = () => {
+        if ((root.dataset.theme || 'auto') === 'auto') {
+          applyTheme('auto');
+        }
+      };
+
+      if (prefersDarkMode) {
+        if (typeof prefersDarkMode.addEventListener === 'function') {
+          prefersDarkMode.addEventListener('change', handleSystemThemeChange);
+        } else if (typeof prefersDarkMode.addListener === 'function') {
+          prefersDarkMode.addListener(handleSystemThemeChange);
+        }
+      }
+
+      window.__trinokaTheme = {
+        getTheme: () => root.dataset.theme || 'auto',
+        getMode: () => root.dataset.mode || resolveMode('auto'),
+        setTheme: (theme) => {
+          const normalizedTheme = theme === 'dark' || theme === 'light' ? theme : 'auto';
+
+          try {
+            if (normalizedTheme === 'auto') {
+              localStorage.removeItem(themeStorageKey);
+            } else {
+              localStorage.setItem(themeStorageKey, normalizedTheme);
+            }
+          } catch {
+            // Ignore storage access failures and still apply in-memory theme.
+          }
+
+          applyTheme(normalizedTheme);
+        }
+      };
+    </script>
     
     <SEO 
       title={siteTitle}
@@ -41,9 +142,9 @@ const siteTitle = `${title} | ${constants.legalName}`;
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href={googleFontHref} rel="stylesheet" />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col" style={`--font-body: ${bodyFontStack};`}>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <Header />

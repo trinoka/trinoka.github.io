@@ -6,12 +6,35 @@
   "legalName": "Trinoka LLP",
   "llpin": "ACT-9590",
   "indexingAllowed": true,
-  "favicon": "/brand-assets/trinoka-favicon.svg",
+  "favicon": "/brand-assets/trinoka-favicon-light.svg",
+  "faviconDark": "/brand-assets/trinoka-favicon-dark.svg",
   "logo": "/brand-assets/trinoka-logo-primary.svg",
-  "logoHorizontal": "/brand-assets/trinoka-logo-horizontal.svg",
-  "logoMark": "/brand-assets/trinoka-logo-mark.svg",
+  "logoHorizontal": "/brand-assets/trinoka-logo-horizontal-light.svg",
+  "logoHorizontalDark": "/brand-assets/trinoka-logo-horizontal-dark.svg",
+  "logoMark": "/brand-assets/trinoka-logo-mark-light.svg",
+  "logoMarkDark": "/brand-assets/trinoka-logo-mark-dark.svg",
   "socialIcon": "/brand-assets/trinoka-social-icon.svg",
   "ogImage": "/brand-assets/trinoka-banner.svg",
+  "typography": {
+    "family": "Work Sans",
+    "weights": "400;500;600;700",
+    "display": "swap",
+    "fallbackStack": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "professionalOptions": [
+      "Inter",
+      "Source Sans 3",
+      "IBM Plex Sans",
+      "Public Sans",
+      "Manrope",
+      "Work Sans"
+    ]
+  },
+  "theme": {
+    "defaultColor": "#1e3a5f",
+    "lightColor": "#ffffff",
+    "darkColor": "#0f1f33",
+    "iosStatusBarStyle": "default"
+  },
   "registeredOffice": {
     "streetAddress": "6/186, Vikas Nagar",
     "locality": "Lucknow",

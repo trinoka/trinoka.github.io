@@ -23,8 +23,9 @@ function isActive(href: string): boolean {
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 text-xl font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary)]">
-        <img src={constants.logoMark} alt="Trinoka LLP" class="w-8 h-8 object-contain" />
-        <span>Trinoka LLP</span>
+        <img src={constants.logoMark} alt="Trinoka" class="w-8 h-8 object-contain theme-logo theme-logo-light" />
+        <img src={constants.logoMarkDark} alt="Trinoka" class="w-8 h-8 object-contain theme-logo theme-logo-dark" />
+        <span>Trinoka</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -46,19 +47,31 @@ function isActive(href: string): boolean {
         ))}
       </ul>
 
-      <!-- Mobile Menu Button -->
-      <button 
-        type="button"
-        class="md:hidden p-2 text-gray-600 hover:text-[var(--color-primary)]"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        id="mobile-menu-button"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          class="theme-toggle"
+          aria-label="Theme: Auto. Click to change theme"
+          id="theme-toggle-button"
+        >
+          <span aria-hidden="true" id="theme-toggle-icon">◐</span>
+          <span class="hidden sm:inline" id="theme-toggle-label">Theme: Auto</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button 
+          type="button"
+          class="md:hidden p-2 text-gray-600 hover:text-[var(--color-primary)]"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          id="mobile-menu-button"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Navigation -->
@@ -87,10 +100,69 @@ function isActive(href: string): boolean {
 <script>
   const menuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const themeToggleButton = document.getElementById('theme-toggle-button');
+  const themeToggleLabel = document.getElementById('theme-toggle-label');
+  const themeToggleIcon = document.getElementById('theme-toggle-icon');
+
+  const themeNames = {
+    auto: 'Auto',
+    light: 'Light',
+    dark: 'Dark'
+  };
+
+  const themeIcons = {
+    autoLight: '◑',
+    autoDark: '◐',
+    light: '☀',
+    dark: '☾'
+  };
+
+  const getThemeApi = () => window.__trinokaTheme;
+
+  const getNextTheme = (currentTheme) => {
+    if (currentTheme === 'auto') return 'light';
+    if (currentTheme === 'light') return 'dark';
+    return 'auto';
+  };
+
+  const updateThemeToggleUi = () => {
+    const themeApi = getThemeApi();
+    const currentTheme = themeApi?.getTheme?.() || 'auto';
+    const currentMode = themeApi?.getMode?.() || 'light';
+    const label = `Theme: ${themeNames[currentTheme]}`;
+    const icon = currentTheme === 'auto'
+      ? (currentMode === 'dark' ? themeIcons.autoDark : themeIcons.autoLight)
+      : themeIcons[currentTheme];
+
+    if (themeToggleLabel) {
+      themeToggleLabel.textContent = label;
+    }
+
+    if (themeToggleIcon) {
+      themeToggleIcon.textContent = icon;
+    }
+
+    if (themeToggleButton) {
+      themeToggleButton.setAttribute('aria-label', `${label}. Click to cycle theme`);
+      themeToggleButton.setAttribute('title', `${label} (Auto → Light → Dark)`);
+    }
+  };
 
   menuButton?.addEventListener('click', () => {
     const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
     menuButton.setAttribute('aria-expanded', String(!isExpanded));
     mobileMenu?.classList.toggle('hidden');
   });
+
+  themeToggleButton?.addEventListener('click', () => {
+    const themeApi = getThemeApi();
+    if (!themeApi?.setTheme) return;
+
+    const currentTheme = themeApi.getTheme?.() || 'auto';
+    themeApi.setTheme(getNextTheme(currentTheme));
+    updateThemeToggleUi();
+  });
+
+  window.addEventListener('themechange', updateThemeToggleUi);
+  updateThemeToggleUi();
 </script>

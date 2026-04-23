@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(80, 100)">
+    <ellipse cx="-22" cy="0" rx="20" ry="36" fill="none" stroke="#5e7494" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="20" ry="40" fill="none" stroke="#3f5f87" stroke-width="3"/>
+    <ellipse cx="22" cy="0" rx="20" ry="36" fill="none" stroke="#7b93b4" stroke-width="3"/>
+  </g>
+  <text x="250" y="95" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#3f5f87" text-anchor="middle" letter-spacing="6">TRINOKA</text>
+  <text x="250" y="125" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="500" fill="#6a7f9b" text-anchor="middle" letter-spacing="4">LLP</text>
+</svg>
