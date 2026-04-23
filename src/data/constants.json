@@ -12,6 +12,12 @@
   "logoMark": "/brand-assets/trinoka-logo-mark.svg",
   "socialIcon": "/brand-assets/trinoka-social-icon.svg",
   "ogImage": "/brand-assets/trinoka-banner.svg",
+  "theme": {
+    "defaultColor": "#1e3a5f",
+    "lightColor": "#ffffff",
+    "darkColor": "#0f1f33",
+    "iosStatusBarStyle": "default"
+  },
   "registeredOffice": {
     "streetAddress": "6/186, Vikas Nagar",
     "locality": "Lucknow",

@@ -10,7 +10,7 @@ export function GET() {
     });
   }
 
-  const body = `User-agent: *\nAllow: /\n\nSitemap: ${constants.siteUrl}/sitemap-index.xml\n`;
+  const body = `User-agent: *\nAllow: /\n\nSitemap: ${constants.siteUrl}/sitemap.xml\n`;
   return new Response(body, {
     headers: {
       'content-type': 'text/plain; charset=utf-8'
