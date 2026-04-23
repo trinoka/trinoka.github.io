@@ -15,6 +15,9 @@ interface Props {
 
 const { title, description, canonical, ogImage, ogType = 'website' } = Astro.props;
 const siteTitle = `${title} | ${constants.legalName}`;
+const googleFontFamily = encodeURIComponent(constants.typography.family).replace(/%20/g, '+');
+const googleFontHref = `https://fonts.googleapis.com/css2?family=${googleFontFamily}:wght@${constants.typography.weights}&display=${constants.typography.display}`;
+const bodyFontStack = `'${constants.typography.family}', ${constants.typography.fallbackStack}`;
 ---
 
 <!doctype html>
@@ -126,9 +129,9 @@ const siteTitle = `${title} | ${constants.legalName}`;
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href={googleFontHref} rel="stylesheet" />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col" style={`--font-body: ${bodyFontStack};`}>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <Header />

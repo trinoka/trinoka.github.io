@@ -12,6 +12,20 @@
   "logoMark": "/brand-assets/trinoka-logo-mark.svg",
   "socialIcon": "/brand-assets/trinoka-social-icon.svg",
   "ogImage": "/brand-assets/trinoka-banner.svg",
+  "typography": {
+    "family": "Work Sans",
+    "weights": "400;500;600;700",
+    "display": "swap",
+    "fallbackStack": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "professionalOptions": [
+      "Inter",
+      "Source Sans 3",
+      "IBM Plex Sans",
+      "Public Sans",
+      "Manrope",
+      "Work Sans"
+    ]
+  },
   "theme": {
     "defaultColor": "#1e3a5f",
     "lightColor": "#ffffff",
