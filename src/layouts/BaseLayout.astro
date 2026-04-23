@@ -25,7 +25,7 @@ const bodyFontStack = `'${constants.typography.family}', ${constants.typography.
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={constants.favicon} />
+    <link rel="icon" type="image/svg+xml" href={constants.favicon} id="dynamic-favicon" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <meta name="application-name" content={constants.legalName} />
@@ -39,10 +39,19 @@ const bodyFontStack = `'${constants.typography.family}', ${constants.typography.
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content={constants.theme.darkColor} />
     <meta name="color-scheme" content="light dark" />
 
-    <script is:inline define:vars={{ lightThemeColor: constants.theme.lightColor, darkThemeColor: constants.theme.darkColor }}>
+    <script
+      is:inline
+      define:vars={{
+        lightThemeColor: constants.theme.lightColor,
+        darkThemeColor: constants.theme.darkColor,
+        lightFavicon: constants.favicon,
+        darkFavicon: constants.faviconDark
+      }}
+    >
       const root = document.documentElement;
       const themeStorageKey = 'trinoka-theme';
       const dynamicThemeMeta = document.querySelector('meta[name="theme-color"]:not([media])');
+      const dynamicFavicon = document.getElementById('dynamic-favicon');
       const prefersDarkMode = window.matchMedia?.('(prefers-color-scheme: dark)');
 
       const resolveMode = (theme) => {
@@ -60,6 +69,10 @@ const bodyFontStack = `'${constants.typography.family}', ${constants.typography.
 
         if (dynamicThemeMeta) {
           dynamicThemeMeta.setAttribute('content', resolvedMode === 'dark' ? darkThemeColor : lightThemeColor);
+        }
+
+        if (dynamicFavicon) {
+          dynamicFavicon.setAttribute('href', resolvedMode === 'dark' ? darkFavicon : lightFavicon);
         }
 
         window.dispatchEvent(
